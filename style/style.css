@@ -13,3 +13,8 @@ ul{
   margin: 10px;
   font-size: 15px;
 }
+.center-conteiner{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+}
