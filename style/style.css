@@ -1,3 +1,8 @@
+
+.my-nav-bar{
+  margin: -10px;
+}
+
 a {
     color: #FFFFFF;
     text-decoration: none;
@@ -40,12 +45,7 @@ ul{
   height: 65px;
   width: 65px;
 }
-body{
-  color: #001F3F;
-  background-color: #001F3F;
-}
+
 .background{
-  background-color: #001F3F;
-  color: #001F3F;
-  
+  background-color: #ecf0f5;
 }
