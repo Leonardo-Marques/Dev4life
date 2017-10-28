@@ -2,6 +2,25 @@ angular.module('app').controller('matchesController', function($scope, $rootScop
 
   console.log($rootScope.summoner);
 
+  $scope.convertTimestampToDate = function(timestamp){
+    var date = new Date(timestamp)
+    var minutes = date.getMinutes()
+    var day = date.getDate()
+    var month = date.getMonth()
+    day = formatDateInput(day)
+    minutes = formatDateInput(minutes)
+    month = formatDateInput(month)
+
+    var dateString =  day + "/" + month + " as " + date.getHours() + ":" + minutes
+    return dateString
+  }
+
+  function formatDateInput(number){
+    if(number < 10){
+      number = "0" + number.toString()
+    }
+    return number
+  }
 
   $scope.matches = {
     "matches": [
@@ -210,4 +229,5 @@ angular.module('app').controller('matchesController', function($scope, $rootScop
     "startIndex": 0,
     "totalGames": 142
 }
+
 });
