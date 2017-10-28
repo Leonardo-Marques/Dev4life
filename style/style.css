@@ -1,0 +1,38 @@
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+ul{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.match-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.match-box-itens{
+  display: flex;
+  flex-direction: column;
+}
+
+.match-box-itens > span{
+  margin: 10px;
+  font-size: 15px;
+}
+
+.center-conteiner{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+}
+
+.match-box-button{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
