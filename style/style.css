@@ -1,6 +1,6 @@
 
 .my-nav-bar{
-  margin: -10px;
+  margin: -10px -10px 10px -10px;
 }
 
 a {
@@ -48,4 +48,8 @@ ul{
 
 .background{
   background-color: #ecf0f5;
+}
+
+.filter-input{
+  width: 100%;
 }
