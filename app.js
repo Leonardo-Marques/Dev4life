@@ -9,7 +9,7 @@ angular.module('app',['ngRoute']).config(function ($routeProvider){
         templateUrl: 'pages/matches.html',
         controller: 'matchesController'
     })
-    .when('/tips',{
+    .when('/tips/:idMatch?',{
         templateUrl: 'pages/tips.html',
         controller: 'tipsController'
     }).otherwise({
