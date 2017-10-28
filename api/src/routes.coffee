@@ -1,5 +1,11 @@
 Kayn = require 'kayn'
 
+
+QUEUES = {
+  420: '(Summoner\'s Rift	) 5v5 Ranked Solo games'
+}
+
+
 routes = (app) =>
   kayn = Kayn.Kayn('RGAPI-2b0b2fc6-a141-479c-8d53-3919585145bd')({
     region: 'br',
@@ -19,10 +25,21 @@ routes = (app) =>
     },
   })
 
-  console.log kayn
-  kayn.Summoner.by.name 'soldadomew'
-    .then (data) =>
-      console.log data
+
+  app.get '/summoner/:nickname', (req, res) =>
+    nick = req.params.nickname
+    console.log nick
+    kayn.Summoner.by.name nick
+      .then (summoner) =>
+        kayn.Matchlist.by.accountID summoner.accountId
+          .query { endIndex: 10 }
+          .then (data) =>
+            res.json data
+      .catch (err) =>
+        res.status 412
+          .json err: err
+
+
 
 
 
