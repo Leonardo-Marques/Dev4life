@@ -26,5 +26,4 @@ angular.module('app').controller('matchesController', function($scope, $rootScop
     }
     return number
   }
-
 });
