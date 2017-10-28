@@ -1,5 +1,11 @@
+<div ng-if="hasError" class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <h4><i class="icon fa fa-ban"></i> LOL</h4>
+  Summoner não encontrado<img src="../img/meme_lol.png" width="60" height="45" alt="LOL" align="right">
+</div>
+
 <ul>
-  <li ng-repeat="match in matches.matches" class="box box-info">
+  <li ng-repeat="match in matches" class="box box-info">
     <a href="#!/tips/{{match.gameId}}">
       <div class="box-header">
         <h3 class="box-title">Date: {{convertTimestampToDate(match.timestamp)}}</h3>
