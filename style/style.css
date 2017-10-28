@@ -30,12 +30,15 @@ ul{
  justify-content: center;
 }
 
-.champ-img{
+.box-img{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 50px;
-  width: 50px;
+}
+
+.champ-img{
+  height: 65px;
+  width: 65px;
 }
 body{
   color: #001F3F;

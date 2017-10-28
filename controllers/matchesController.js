@@ -22,7 +22,7 @@ angular.module('app').controller('matchesController', function($scope, $rootScop
     return number
   }
 
-  $scope.matches = {
+  $scope.matches ={
     "matches": [
         {
             "lane": "BOTTOM",

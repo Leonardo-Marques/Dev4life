@@ -1,23 +1,21 @@
-<div class="col-xs-12">
-  <ul>
-    <li ng-repeat="match in matches.matches" class="box box-info">
-      <a href="#!/tips/{{match.gameId}}">
-        <div class="box-header">
-          <h3 class="box-title">Date: {{convertTimestampToDate(match.timestamp)}}</h3>
+<ul>
+  <li ng-repeat="match in matches.matches" class="box box-info">
+    <a href="#!/tips/{{match.gameId}}">
+      <div class="box-header">
+        <h3 class="box-title">Date: {{convertTimestampToDate(match.timestamp)}}</h3>
+      </div>
+      <div class="match-box">
+        <div class="box-img">
+          <img class="champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"/>
         </div>
-        <div class="match-box">
-          <div class="champ-img">
-            <span>Champion: {{match.champion}}</span>
+        <div class="col-xs-9">
+          <div class="box-body match-box-itens">
+            <span>Lane: {{match.lane}}</span>
+            <span>Season: {{match.season}}</span>
+            <span>Queue: {{match.queue}}</span>
           </div>
-            <div class="col-xs-9">
-              <div class="box-body match-box-itens">
-                <span>Lane: {{match.lane}}</span>
-                <span>Season: {{match.season}}</span>
-                <span>Queue: {{match.queue}}</span>
-              </div>
-            </div>
         </div>
-      </a>
-    </li>
-  </ul>
-</div>
+      </div>
+    </a>
+  </li>
+</ul>
