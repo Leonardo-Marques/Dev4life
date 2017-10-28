@@ -1,5 +1,5 @@
-angular.module('app').controller('startController', function($scope, $location, $http, dominio) {
+angular.module('app').controller('startController', function($scope, $http) {
 
-    
+
 
 });
