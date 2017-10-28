@@ -1,0 +1,9 @@
+.match-box-itens{
+  display: flex;
+  flex-direction: column;
+}
+
+.match-box-itens > span{
+  font-size: 40px;
+  margin: 15px;
+}
