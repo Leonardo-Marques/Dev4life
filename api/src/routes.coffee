@@ -115,7 +115,17 @@ routes = (app) =>
           .json err: err
         return
 
+  app.get '/match/:matchId', (req, res) =>
+    matchId = req.params.matchId
 
+    kayn.Match.get matchId
+      .then (match) =>
+        res.json match
+        return
+      .catch (err) =>
+        res.status 412
+          .json err: err
+        return
 
 
 module.exports = routes
