@@ -4,6 +4,7 @@ angular.module('app',['ngRoute']).config(function ($routeProvider){
     $routeProvider.when('/',{
         templateUrl: 'pages/start.html',
         controller: 'startController'
-    })
+    });
+
 
 });
