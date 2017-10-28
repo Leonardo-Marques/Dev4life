@@ -98,7 +98,6 @@ routes = (app) =>
     console.log nick
     kayn.Summoner.by.name nick
       .then (summoner) =>
-        console.log kayn.Static.Champion.limiter.appLimits
         kayn.Matchlist.by.accountID summoner.accountId
           .query { endIndex: 10 }
           .then (response) =>
@@ -107,7 +106,7 @@ routes = (app) =>
               codeQueue = match.queue
               response.matches[index].queue = QUEUES[codeQueue] || match.queue
               if match.lane is 'BOTTOM'
-                response.matches[index].lane = 'BOT's
+                response.matches[index].lane = 'BOT'
               return
             res.json response
             return
