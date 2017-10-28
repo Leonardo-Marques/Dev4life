@@ -4,11 +4,16 @@
   Summoner não encontrado<img src="../img/meme_lol.png" width="60" height="45" alt="LOL" align="right">
 </div>
 
+<div ng-if="!hasError">
+  <h4>Partidas de {{summoner}}</h4>
+  <input name="filtro" class="filter-input breadcrumb" ng-model="filtro" placeholder="Filtrar Partida"/>
+</div>
+
 <ul>
-  <li ng-repeat="match in matches" class="box box-info">
+  <li ng-repeat="match in matches | filter: filtro" class="box box-info">
     <a href="#!/tips/{{match.gameId}}">
       <div class="box-header">
-        <h3 class="box-title">Date: {{convertTimestampToDate(match.timestamp)}}</h3>
+        <h3 class="box-title">Date: {{convertTimestampToDate(match)}}</h3>
       </div>
       <div class="match-box">
         <div class="box-img">

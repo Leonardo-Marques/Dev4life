@@ -2,6 +2,9 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
     $scope.hasError = false;
     $scope.errorMsg = false;
 
+  console.log($rootScope.summoner);
+  $scope.summoner = $rootScope.summoner;
+
     $http.get("http://localhost:4040/summoner/"+$rootScope.summoner)
         .then(function (response) {
             $scope.matches = response.data.matches;
@@ -10,18 +13,18 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
             $scope.hasMsg = "Summoner não encontrado";
     });
 
-    $scope.convertTimestampToDate = function (timestamp) {
-        var date = new Date(timestamp)
-        var minutes = date.getMinutes()
-        var day = date.getDate()
-        var month = date.getMonth()
-        day = formatDateInput(day)
-        minutes = formatDateInput(minutes)
-        month = formatDateInput(month)
-
-        var dateString = day + "/" + month + " as " + date.getHours() + ":" + minutes
-        return dateString
-    }
+  $scope.convertTimestampToDate = function(match){
+    var date = new Date(match.timestamp)
+    var minutes = date.getMinutes()
+    var day = date.getDate()
+    var month = date.getMonth()
+    day = formatDateInput(day)
+    minutes = formatDateInput(minutes)
+    month = formatDateInput(month)
+    var dateString =  day + "/" + month + " as " + date.getHours() + ":" + minutes
+    match.date = dateString
+    return dateString
+  }
 
     function formatDateInput(number) {
         if (number < 10) {
