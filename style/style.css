@@ -21,7 +21,7 @@ ul{
 
 .match-box-itens > span{
   margin: 5px 0px;;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .center-conteiner{
@@ -30,9 +30,10 @@ ul{
  justify-content: center;
 }
 
-.match-box-button{
-  margin: 10px;
+.champ-img{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 50px;
+  width: 50px;
 }
