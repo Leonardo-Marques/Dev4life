@@ -1,0 +1,43 @@
+Regras para a logica:
+
+
+farm:
+
+12 por min = farm pefeito
+- 7 por min = ruim
+7, 8, 9 por min = bom
++ 9 por min = otimo
+
+
+torre:
+
+se morreu para torre = ruim
+se levou + de 4k de ano da torre = cuidado
+levou - de 4k de dano o = otimo
+
+kda: (abates + assistencias / mortes)
+
++4 = bom
+1-4 = normal
+-1 = ruim
+
+
+
+DICAS
+
+
+farm:
+tente sempre dar o golpe final no minion;
+nao perca as catapultas!!
+lembre-se que 3 waves completas de minions vale mais que um abate!
+
+
+torre:
+tome cuidado com a torre, ela tem dano cumulativo (mais tempo embaixo mais dano cada ataque);
+de menos Dives (nao atacar usuario embaixo da torre);
+
+
+kda:
+se voce esta morrendo muito, tente jogar mais recuado;
+assistencias tambem aumentam o KDA, ajude seu time!
+nao se mate por kill.
