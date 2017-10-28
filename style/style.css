@@ -37,3 +37,12 @@ ul{
   height: 50px;
   width: 50px;
 }
+body{
+  color: #001F3F;
+  background-color: #001F3F;
+}
+.background{
+  background-color: #001F3F;
+  color: #001F3F;
+  
+}
