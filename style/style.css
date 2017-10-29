@@ -59,7 +59,7 @@ ul{
   background-size: cover;
   background-attachment: fixed;
   background-image: url('../img/wallpaper.jpg');
-  background-color: #ecf0f5;
+  background-color: blue;
 }
 
 .filter-input{
