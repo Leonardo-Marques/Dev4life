@@ -1,156 +1,239 @@
 <a href="#!/matches"><i class="fa fa-fw fa-angle-left go-back-icon"></i></a>
 <div class="col-md-12">
 
-	<div class="box box-widget widget-user">
-		<!-- Add the bg color to the header using any of the bg-* classes -->
-		<div class="widget-user-header bg-black" style="background: url('../img/black-bg.png') center center;">
-			<h3 class="widget-user-username">{{summoner}}</h3>
-			<h5 class="widget-user-desc">LVL: {{summonerLevel}}</h5>
-			<!--<img class="img-responsive"  width="60" height="60" src="../img/gold.png" alt="" align="center" style="margin: 0 auto">-->
-		</div>
-		<div class="widget-user-image">
-			<img class="img-circle" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png" alt="User Avatar">
-		</div>
-		<div class="box-footer">
-			<div class="row game-basic-stats">
-				<div class="col-sm-4 col-xs-4 border-right">
-					<div class="description-block">
-						<span class="description-text">Jogo</span>
-						<h5 ng-if="!loading" class="description-header">{{gameMode}}</h5>
-						<div ng-if="loading" >
-						    <i class="icon fa fa-spinner fa-spin fa-fw"></i>
-						</div>
-					</div>
-					<!-- /.description-block -->
-				</div>
-				<!-- /.col -->
-				<div class="col-sm-4 col-xs-4 border-right win-box" style="padding: 0px;">
-					<div class="description-block">
-						<h5 ng-if="!loading" ng-show="win" class="description-header venceu-text">Vitória</h5>
-						<h5 ng-if="!loading" ng-show="!win" class="description-header perdeu-text">Derrota</h5>
-						<div ng-if="loading" >
-								<i class="icon fa fa-spinner fa-spin fa-fw"></i>
-						</div>
-					</div>
-					<!-- /.description-block -->
-				</div>
-				<!-- /.col -->
-				<div class="col-sm-4 col-xs-4">
-					<div class="description-block">
-						<span class="description-text">Killing Spree</span>
-						<h5 ng-if="!loading" class="description-header">{{largestKillingSpree}}</h5>
-						<div ng-if="loading" >
-						    <i class="icon fa fa-spinner fa-spin fa-fw"></i>
-						</div>
-					</div>
-					<!-- /.description-block -->
-				</div>
-				<!-- /.col -->
-			</div>
-			<!-- /.row -->
-		</div>
-	</div>
+    <div class="box box-widget widget-user">
+        <!-- Add the bg color to the header using any of the bg-* classes -->
+        <div class="widget-user-header bg-black" style="background: url('../img/black-bg.png') center center;">
+            <h3 class="widget-user-username">{{summoner}}</h3>
+            <h5 class="widget-user-desc">LVL: {{summonerLevel}}</h5>
+            <!--<img class="img-responsive"  width="60" height="60" src="../img/gold.png" alt="" align="center" style="margin: 0 auto">-->
+        </div>
+        <div class="widget-user-image">
+            <img class="img-circle" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"
+                 alt="User Avatar">
+        </div>
+        <div class="box-footer">
+            <div class="row game-basic-stats">
+                <div class="col-sm-4 col-xs-4 border-right">
+                    <div class="description-block">
+                        <span class="description-text">Jogo</span>
+                        <h5 ng-if="!loading" class="description-header">{{gameMode}}</h5>
+                        <div ng-if="loading">
+                            <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+                        </div>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 col-xs-4 border-right win-box" style="padding: 0px;">
+                    <div class="description-block">
+                        <h5 ng-if="!loading" ng-show="win" class="description-header venceu-text">Vitória</h5>
+                        <h5 ng-if="!loading" ng-show="!win" class="description-header perdeu-text">Derrota</h5>
+                        <div ng-if="loading">
+                            <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+                        </div>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 col-xs-4">
+                    <div class="description-block">
+                        <span class="description-text">Killing Spree</span>
+                        <h5 ng-if="!loading" class="description-header">{{largestKillingSpree}}</h5>
+                        <div ng-if="loading">
+                            <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+                        </div>
+                    </div>
+                    <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
 
-	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-8 col-md-offset-2"> -->
-			<div class="info-box">
-				<span class="info-box-icon bg-{{metricFarm.color}}"><i class="{{metricFarm.icon}}" aria-hidden="true"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text" style="font-size: 1.5em">Farm/Min</span>
-					<span ng-if="!loading" class="info-box-number">{{creepRatio}}</span>
-					<div ng-if="loading" >
-							<i class="icon fa fa-spinner fa-spin fa-fw"></i>
-					</div>
-				</div>
-			</div>
-		<!-- </div> -->
-	</div>
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <!-- <div class="col-md-8 col-md-offset-2"> -->
+        <div class="info-box">
+            <span class="info-box-icon bg-{{metricFarm.color}}"><i class="{{metricFarm.icon}}"
+                                                                   aria-hidden="true"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text" style="font-size: 1.5em">Farm/Min</span>
+                <span ng-if="!loading" class="info-box-number">{{creepRatio}}</span>
+                <div ng-if="loading">
+                    <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
 
-	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-8 col-md-offset-2"> -->
-			<div class="info-box">
-				<span class="info-box-icon bg-{{metricTimeLiving.color}}"><i class="{{metricTimeLiving.icon}}" aria-hidden="true"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text" style="font-size: 1.5em">+ Tempo Vivo</span>
-					<span ng-if="!loading" class="info-box-number">{{longestTimeSpentLiving}}</span>
-					<div ng-if="loading" >
-							<i class="icon fa fa-spinner fa-spin fa-fw"></i>
-					</div>
-				</div>
-			</div>
-		<!-- </div> -->
-	</div>
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <!-- <div class="col-md-8 col-md-offset-2"> -->
+        <div class="info-box">
+            <span class="info-box-icon bg-{{metricTimeLiving.color}}"><i class="{{metricTimeLiving.icon}}"
+                                                                         aria-hidden="true"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text" style="font-size: 1.5em">+ Tempo Vivo</span>
+                <span ng-if="!loading" class="info-box-number">{{longestTimeSpentLiving}}</span>
+                <div ng-if="loading">
+                    <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
 
-	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-8 col-md-offset-2"> -->
-			<div class="info-box">
-				<span class="info-box-icon bg-{{metricKda.color}}"><i class="{{metricKda.icon}}" aria-hidden="true"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text" style="font-size: 1.5em">KDA</span>
-					<span ng-if="!loading" class="info-box-number">{{kda}}</span>
-					<div ng-if="loading" >
-							<i class="icon fa fa-spinner fa-spin fa-fw"></i>
-					</div>
-				</div>
-			</div>
-		<!-- </div> -->
-	</div>
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <!-- <div class="col-md-8 col-md-offset-2"> -->
+        <div class="info-box">
+            <span class="info-box-icon bg-{{metricKda.color}}"><i class="{{metricKda.icon}}"
+                                                                  aria-hidden="true"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text" style="font-size: 1.5em">KDA</span>
+                <span ng-if="!loading" class="info-box-number">{{kda}}</span>
+                <div ng-if="loading">
+                    <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
 
-	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-3"> -->
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dicas sobre farming</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body">
-					<ol>
-						<li ng-repeat="tip in viewFarmTips">{{tip}}</li>
-					</ol>
-				</div>
-			</div>
-		<!-- </div> -->
-	</div>
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas sobre farming</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewFarmTips">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
-	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-3"> -->
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dicas sobre tempo de vida</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body">
-					<ol>
-						<li ng-repeat="tip in viewTimeTips">{{tip}}</li>
-					</ol>
-				</div>
-			</div>
-		<!-- </div> -->
-	</div>
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas sobre KDA</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewKdaTips">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
-	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-3"> -->
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dicas sobre KDA</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body">
-					<ol>
-						<li ng-repeat="tip in viewKdaTips">{{tip}}</li>
-					</ol>
-				</div>
-			</div>
-		<!-- </div> -->
-	</div>
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas para assassinos</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewTimeTips.assassinos">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas para Suporte Tank</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewTimeTips.suporte_tank">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas para Suporte Utility</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewTimeTips.suporte_utility">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas para ADC</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewTimeTips.adc">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas para Solo Tank</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewTimeTips.solo_tank">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 match-box">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Dicas para Mago</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <ol>
+                    <li ng-repeat="tip in viewTimeTips.mago">{{tip}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
 </div>

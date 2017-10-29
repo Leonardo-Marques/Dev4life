@@ -73,6 +73,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
 
                 $scope.viewFarmTips = $scope.tips['farm'][$scope.metricFarm.name];
                 $scope.viewKdaTips = $scope.tips['kda'][$scope.metricKda.name];
+                $scope.viewTimeTips = $scope.tips['time'][$scope.metricTimeLiving.name];
 
             });
     }
