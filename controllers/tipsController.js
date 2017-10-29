@@ -30,7 +30,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.showTipsKda = false
 
     //Get Match
-    $http.get("https://intense-waters-52899.herokuapp.com/match" + $scope.matchId)
+    $http.get("https://intense-waters-52899.herokuapp.com/match/" + $scope.matchId)
         .then(function (response) {
             $scope.loading = false;
             $scope.match = response.data;

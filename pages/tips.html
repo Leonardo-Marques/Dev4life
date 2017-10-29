@@ -63,27 +63,28 @@
 					</div>
 				</div>
 			</div>
-		<!-- </div> -->
-	</div>
-
-	<div ng-click="setFarm()" class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-3"> -->
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dicas sobre farming</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
+			<div ng-click="setFarm()" class="match-box">
+				<!-- <div class="col-md-3"> -->
+					<div class="box box-info">
+						<div class="box-header with-border">
+							<h3 class="box-title">Dicas sobre farming</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+							</div>
+						</div>
+						<div ng-if="showTipsFarm" class="box-body">
+							<ol>
+								<li ng-repeat="tip in viewFarmTips">{{tip}}</li>
+							</ol>
+						</div>
 					</div>
-				</div>
-				<div ng-if="showTipsFarm" class="box-body">
-					<ol>
-						<li ng-repeat="tip in viewFarmTips">{{tip}}</li>
-					</ol>
-				</div>
+				<!-- </div> -->
 			</div>
 		<!-- </div> -->
 	</div>
+
+
 
 	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
 		<!-- <div class="col-md-8 col-md-offset-2"> -->
@@ -98,26 +99,27 @@
 				</div>
 			</div>
 		<!-- </div> -->
-	</div>
-
-	<div ng-click="setTime()" class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-3"> -->
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dicas sobre tempo de vida</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
+		<div ng-click="setTime()" class="match-box">
+			<!-- <div class="col-md-3"> -->
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<h3 class="box-title">Dicas sobre tempo de vida</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+						</div>
+					</div>
+					<div ng-if="showTipsTime" class="box-body">
+						<ol>
+							<li ng-repeat="tip in viewTimeLiveTips">{{tip}}</li>
+						</ol>
 					</div>
 				</div>
-				<div ng-if="showTipsTime" class="box-body">
-					<ol>
-						<li ng-repeat="tip in viewTimeLiveTips">{{tip}}</li>
-					</ol>
-				</div>
-			</div>
-		<!-- </div> -->
+			<!-- </div> -->
+		</div>
 	</div>
+
+
 
 	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
 		<!-- <div class="col-md-8 col-md-offset-2"> -->
@@ -132,25 +134,26 @@
 				</div>
 			</div>
 		<!-- </div> -->
-	</div>
-
-	<div ng-click="setKda()" class="col-md-4 col-sm-6 col-xs-12 match-box">
-		<!-- <div class="col-md-3"> -->
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dicas sobre KDA</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
+		<div ng-click="setKda()" class="match-box">
+			<!-- <div class="col-md-3"> -->
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<h3 class="box-title">Dicas sobre KDA</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+						</div>
+					</div>
+					<div ng-if="showTipsKda" class="box-body">
+						<ol>
+							<li ng-repeat="tip in viewKdaTips">{{tip}}</li>
+						</ol>
 					</div>
 				</div>
-				<div ng-if="showTipsKda" class="box-body">
-					<ol>
-						<li ng-repeat="tip in viewKdaTips">{{tip}}</li>
-					</ol>
-				</div>
-			</div>
-		<!-- </div> -->
+			<!-- </div> -->
+	</div>
+
+
 	</div>
 
 </div>
