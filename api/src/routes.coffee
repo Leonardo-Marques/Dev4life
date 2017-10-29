@@ -3,65 +3,78 @@ timer = require 'timers'
 
 QUEUES = {
   0: 	'Custom games'
-  2:	'(Summoner\'s Rift) 	5v5 Blind Pick Games'
-  4: 	'(Summoner\'s Rift) 	5v5 Ranked Solo Games'
-  6: 	'(Summoner\'s Rift) 	5v5 Ranked Premade Games'
-  7: 	'(Summoner\'s Rift) 	Co-op vs AI Games'
-  8: 	'(Twisted Treeline) 	3v3 Normal Games'
-  9: 	'(Twisted Treeline) 	3v3 Ranked Flex Games'
-  14: 	'(Summoner\'s Rift) 	5v5 Draft Pick Games'
-  16:	'(Crystal Scar) 	5v5 Dominion Blind Pick Games'
-  17: 	'(Crystal Scar) 	5v5 Dominion Draft Pick Games'
-  25: 	'(Crystal Scar) 	Dominion Co-op vs AI Games'
-  31: 	'(Summoner\'s Rift) 	Co-op vs AI Intro Bot Games'
-  32: 	'(Summoner\'s Rift) 	Co-op vs AI Beginner Bot Games'
-  33: 	'(Summoner\'s Rift) 	Co-op vs AI Intermediate Bot Games'
-  41: 	'(Twisted Treeline) 	3v3 Ranked Team Games'
-  42: 	'(Summoner\'s Rift) 	5v5 Ranked Team Games'
-  52: 	'(Twisted Treeline) 	Co-op vs AI Games'
-  61: 	'(Summoner\'s Rift) 	5v5 Team Builder Games'
-  65: 	'(Howling Abyss) 	5v5 ARAM Games'
-  70: 	'(Summoner\'s Rift) 	One for All Games'
-  72: 	'((Howling Abyss) 	1v1 Snowdown Showdown Games'
-  73: 	'(Howling Abyss) 	2v2 Snowdown Showdown Games'
-  75: 	'(Summoner\'s Rift) 	6v6 Hexakill Games'
-  76: 	'(Summoner\'s Rift) 	Ultra Rapid Fire Games'
+  2:	'(Summoner\'s Rift) 	5v5 Blind Pick'
+  4: 	'(Summoner\'s Rift) 	5v5 Ranked Solo'
+  6: 	'(Summoner\'s Rift) 	5v5 Ranked Premade'
+  7: 	'(Summoner\'s Rift) 	Co-op vs AI'
+  8: 	'(Twisted Treeline) 	3v3 Normal'
+  9: 	'(Twisted Treeline) 	3v3 Ranked Flex'
+  14: 	'(Summoner\'s Rift) 	5v5 Draft Pick'
+  16:	'(Crystal Scar) 	5v5 Dominion Blind Pick'
+  17: 	'(Crystal Scar) 	5v5 Dominion Draft Pick'
+  25: 	'(Crystal Scar) 	Dominion Co-op vs AI'
+  31: 	'(Summoner\'s Rift) 	Co-op vs AI Intro Bot'
+  32: 	'(Summoner\'s Rift) 	Co-op vs AI Beginner Bot'
+  33: 	'(Summoner\'s Rift) 	Co-op vs AI Intermediate Bot'
+  41: 	'(Twisted Treeline) 	3v3 Ranked Team'
+  42: 	'(Summoner\'s Rift) 	5v5 Ranked Team'
+  52: 	'(Twisted Treeline) 	Co-op vs AI'
+  61: 	'(Summoner\'s Rift) 	5v5 Team Builder'
+  65: 	'(Howling Abyss) 	5v5 ARAM'
+  70: 	'(Summoner\'s Rift) 	One for All'
+  72: 	'((Howling Abyss) 	1v1 Snowdown Showdown'
+  73: 	'(Howling Abyss) 	2v2 Snowdown Showdown'
+  75: 	'(Summoner\'s Rift) 	6v6 Hexakill'
+  76: 	'(Summoner\'s Rift) 	Ultra Rapid Fire'
   78: 	'(Summoner\'s Rift) 	Mirrored One for All'
-  83: 	'(Summoner\'s Rift)	Co-op vs AI Ultra Rapid Fire Games'
-  91: 	'(Summoner\'s Rift) 	Doom Bots Rank 1 Games'
-  92: 	'(Summoner\'s Rift) 	Doom Bots Rank 2 Games'
-  93: 	'(Summoner\'s Rift) 	Doom Bots Rank 5 Games'
-  96: 	'(Crystal Scar) 	Ascension Games'
-  98: 	'(Twisted Treeline) 	6v6 Hexakill Games'
-  100: 	'(Butcher\'s Bridge) 	5v5 ARAM Games'
-  300: 	'(Howling Abyss) 	King Poro Games'
-  310: 	'(Summoner\'s Rift) 	Nemesis Games'
-  313: 	'(Summoner\'s Rift) 	Black Market Brawlers Games'
-  315: 	'(Summoner\'s Rift) 	Nexus Siege Games'
-  317: 	'(Crystal Scar) 	Definitely Not Dominion Games'
-  318: 	'(Summoner\'s Rift) 	All Random URF Games'
-  325: 	'(Summoner\'s Rift) 	All Random Games'
-  400: 	'(Summoner\'s Rift) 	5v5 Draft Pick Games'
-  410: 	'(Summoner\'s Rift) 	5v5 Ranked Dynamic Games'
-  420: 	'(Summoner\'s Rift) 	5v5 Ranked Solo Games'
-  430: 	'(Summoner\'s Rift) 	5v5 Blind Pick Games'
-  440: 	'(Summoner\'s Rift) 	5v5 Ranked Flex Games'
-  450: 	'(Howling Abyss) 	5v5 ARAM Games'
-  460: 	'(Twisted Treeline) 	3v3 Blind Pick Games'
-  470: 	'(Twisted Treeline) 	3v3 Ranked Flex Games'
-  600: 	'(Summoner\'s Rift) 	Blood Hunt Assassin Games'
-  610: 	'(Cosmic Ruins) 	Dark Star Games'
-  800: 	'(Twisted Treeline) 	Co-op vs. AI Intermediate Bot Games'
-  810: 	'(Twisted Treeline) 	Co-op vs. AI Intro Bot Games'
-  820: 	'(Twisted Treeline) 	Co-op vs. AI Beginner Bot Games'
-  830: 	'(Summoner\'s Rift) 	Co-op vs. AI Intro Bot Games'
-  840: 	'(Summoner\'s Rift) 	Co-op vs. AI Beginner Bot Games'
-  850: 	'(Summoner\'s Rift) 	Co-op vs. AI Intermediate Bot Games'
-  940: 	'(Summoner\'s Rift) 	Nexus Siege Games'
-  950: 	'(Summoner\'s Rift) 	Doom Bots Games /w difficulty voting'
-  960: 	'(Summoner\'s Rift) 	Doom Bots Games'
-  980: 	'(Valoran City Park) 	Star Guardian Invasion: Normal Games'
-  990: 	'(Valoran City Park) 	Star Guardian Invasion: Onslaught Games'
+  83: 	'(Summoner\'s Rift)	Co-op vs AI Ultra Rapid Fire'
+  91: 	'(Summoner\'s Rift) 	Doom Bots Rank 1'
+  92: 	'(Summoner\'s Rift) 	Doom Bots Rank 2'
+  93: 	'(Summoner\'s Rift) 	Doom Bots Rank 5'
+  96: 	'(Crystal Scar) 	Ascension'
+  98: 	'(Twisted Treeline) 	6v6 Hexakill'
+  100: 	'(Butcher\'s Bridge) 	5v5 ARAM'
+  300: 	'(Howling Abyss) 	King Poro'
+  310: 	'(Summoner\'s Rift) 	Nemesis'
+  313: 	'(Summoner\'s Rift) 	Black Market Brawlers'
+  315: 	'(Summoner\'s Rift) 	Nexus Siege'
+  317: 	'(Crystal Scar) 	Definitely Not Dominion'
+  318: 	'(Summoner\'s Rift) 	All Random URF'
+  325: 	'(Summoner\'s Rift) 	All Random'
+  400: 	'(Summoner\'s Rift) 	5v5 Draft Pick'
+  410: 	'(Summoner\'s Rift) 	5v5 Ranked Dynamic'
+  420: 	'(Summoner\'s Rift) 	5v5 Ranked Solo'
+  430: 	'(Summoner\'s Rift) 	5v5 Blind Pick'
+  440: 	'(Summoner\'s Rift) 	5v5 Ranked Flex '
+  450: 	'(Howling Abyss) 	5v5 ARAM'
+  460: 	'(Twisted Treeline) 	3v3 Blind Pick'
+  470: 	'(Twisted Treeline) 	3v3 Ranked Flex'
+  600: 	'(Summoner\'s Rift) 	Blood Hunt Assassin'
+  610: 	'(Cosmic Ruins) 	Dark Star'
+  800: 	'(Twisted Treeline) 	Co-op vs. AI Intermediate Bot'
+  810: 	'(Twisted Treeline) 	Co-op vs. AI Intro Bot'
+  820: 	'(Twisted Treeline) 	Co-op vs. AI Beginner Bot'
+  830: 	'(Summoner\'s Rift) 	Co-op vs. AI Intro Bot'
+  840: 	'(Summoner\'s Rift) 	Co-op vs. AI Beginner Bot'
+  850: 	'(Summoner\'s Rift) 	Co-op vs. AI Intermediate Bot'
+  940: 	'(Summoner\'s Rift) 	Nexus Siege'
+  950: 	'(Summoner\'s Rift) 	Doom Bots /w difficulty voting'
+  960: 	'(Summoner\'s Rift) 	Doom Bots'
+  980: 	'(Valoran City Park) 	Star Guardian Invasion: Normal'
+  990: 	'(Valoran City Park) 	Star Guardian Invasion: Onslaught'
+}
+
+SEASON = {
+  0: 	'Pre Season 3'
+  1: 	'Season 3'
+  2: 	'Pre Season 2014'
+  3: 	'Season 2014'
+  4: 	'Pre Season 2015'
+  5: 	'Season 2015'
+  6: 	'Pre Season 2016'
+  7: 	'Season 2016'
+  8: 	'Pre Season 2017'
+  9: 	'Season 2017'
 }
 
 LANE = {
@@ -95,22 +108,26 @@ routes = (app) =>
 
   app.get '/summoner/:nickname', (req, res) =>
     nick = req.params.nickname
-    console.log nick
+    response = { }
     kayn.Summoner.by.name nick
       .then (summoner) =>
+        response.summoner = summoner
+        iconURL = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/" + summoner.profileIconId + ".png"
+        response.summoner.profileIcon = iconURL
         kayn.Matchlist.by.accountID summoner.accountId
           .query { endIndex: 10 }
-          .then (response) =>
-            response.summoner = summoner
-            matches = response.matches
-            matches.forEach (match, index) =>
+          .then (matches) =>
+            matches.matches.forEach (match) ->
               codeQueue = match.queue
-              response.matches[index].queue = QUEUES[codeQueue] || match.queue
+              q = QUEUES[codeQueue].split '\t'
+              match.queue = q[1]
+              match.map = q[0]
+              codeSeason = match.season
+              match.season = SEASON[codeSeason]
               if match.lane is 'BOTTOM'
-                response.matches[index].lane = 'BOT'
-              return
+                match.lane = 'BOT'
+              response.matches.push match
             res.json response
-            return
       .catch (err) =>
         res.status 412
           .json err: err

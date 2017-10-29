@@ -4,20 +4,20 @@
     Summoner não encontrado<img src="../img/meme_lol.png" width="60" height="45" alt="LOL" align="right">
 </div>
 
-<div ng-if="!hasError">
+<!-- <div ng-if="!hasError">
     <h4>Partidas de {{summoner}}</h4>
     <input name="filtro" class="filter-input breadcrumb" ng-model="filtro" placeholder="Filtrar Partida"/>
-</div>
+</div> -->
 
 <div class="box box-widget widget-user">
     <!-- Add the bg color to the header using any of the bg-* classes -->
     <div class="widget-user-header bg-black" style="background: url('../img/black-bg.png') center center;">
-        <h3 class="widget-user-username">Nina Mcintire</h3>
-        <h5 class="widget-user-desc">PDL 19</h5>
+        <h3 class="widget-user-username">{{summonerName}}</h3>
+        <h5 class="widget-user-desc">LVL: {{summonerLevel}}</h5>
         <!--<img class="img-responsive"  width="60" height="60" src="../img/gold.png" alt="" align="center" style="margin: 0 auto">-->
     </div>
     <div class="widget-user-image">
-        <img class="img-circle" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"
+        <img class="img-circle" src="{{profileIcon}}"
              alt="User Avatar">
     </div>
     <div class="box-footer">
@@ -48,6 +48,7 @@
             <!-- /.col -->
         </div>
         <!-- /.row -->
+
     </div>
 </div>
 
@@ -55,24 +56,21 @@
     <h4 style="margin: 0"><i class="icon fa fa-spinner fa-spin fa-fw"></i> Buscando partidas</h4>
 </div>
 
-<ul>
-    <li ng-repeat="match in matches | filter: filtro" class="box box-info">
-        <a href="#!/tips/{{match.gameId}}">
-            <div class="box-header">
-                <h3 class="box-title">Date: {{convertTimestampToDate(match)}}</h3>
-            </div>
-            <div class="match-box">
-                <div class="box-img">
-                    <img class="champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"/>
-                </div>
-                <div class="col-xs-9">
-                    <div class="box-body match-box-itens">
-                        <span>Lane: {{match.lane}}</span>
-                        <span>Season: {{match.season}}</span>
-                        <span>Queue: {{match.queue}}</span>
-                    </div>
-                </div>
-            </div>
+
+
+  <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="match in matches | filter: filtro">
+    <div class="info-box">
+      <span class="info-box-icon">
+        <img class="champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"/>
+      </span>
+      <div class="info-box-content">
+        <a href="#!/tips/{{match.gameId}}" style="color: black">
+          <span class="info-box-number">{{match.queue}}</span>
+          <span class="info-box-text">{{match.map}}</span>
+          <span class="info-box-text">{{match.lane}}</span>
         </a>
-    </li>
-</ul>
+      </div>
+        <!-- /.info-box-content -->
+    </div>
+  <!-- /.info-box -->
+  </div>
