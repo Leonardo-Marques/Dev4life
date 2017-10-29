@@ -56,6 +56,8 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             //Metricas calculadas
             $scope.metricFarm = $scope.calculateMetricFarm($scope.creepRatio);
             $scope.metricKda = $scope.calculateMetricKda($scope.kills, $scope.assists, $scope.deaths);
+            $scope.metricTimeLiving = $scope.calculateMetricTimeLiving();
+
 
             setTips()
         })
@@ -121,6 +123,10 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         }else{
             return $scope.metrics.ok;
         }
+    }
+
+    $scope.calculateMetricTimeLiving = function () {
+        return $scope.metrics.ok;
     }
 
     /**
