@@ -69,7 +69,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
                 $scope.viewTimeTips = $scope.tips['time'][$scope.metricTimeLiving.name];
             });
     }
-    
+
     function calcularCreepRatio(creepHash) {
         var creepRatio = 0;
         for (var creepKey in creepHash) {
