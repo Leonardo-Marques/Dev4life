@@ -135,9 +135,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         }
         var media = (kills + assists)/deaths
 
-        if(media == 0){
-            return $scope.metrics.perfeito;
-        }else if(media >= 5){
+        if(media >= 5){
             return $scope.metrics.otimo;
         }else if(media > 1 && media <= 3){
             return $scope.metrics.ok;

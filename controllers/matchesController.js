@@ -4,6 +4,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
         $location.path( "/" );
     }
 
+    $rootScope.role = "";
     $scope.hasError = false;
     $scope.errorMsg = false;
     $scope.loading = true;
@@ -18,6 +19,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
             $scope.profileIcon = response.data.summoner.profileIcon;
             $scope.summonerName = response.data.summoner.name;
             $scope.summonerLevel = response.data.summoner.summonerLevel;
+            $scope.role = response.data.summoner.role;
         }).catch(function (response) {
         $scope.hasError = true;
         $scope.hasMsg = "Summoner não encontrado";
@@ -35,6 +37,11 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
         var dateString = day + "/" + month + " as " + date.getHours() + ":" + minutes
         match.date = dateString
         return dateString
+    }
+    
+    $scope.next = function (role) {
+        $rootScope.role = role;
+        //$location.path( "/tips/"+matchId );
     }
 
     function formatDateInput(number) {
