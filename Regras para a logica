@@ -9,35 +9,57 @@ farm:
 + 9 por min = otimo
 
 
-torre:
-
-se morreu para torre = ruim
-se levou + de 4k de ano da torre = cuidado
-levou - de 4k de dano o = otimo
-
 kda: (abates + assistencias / mortes)
 
-+4 = bom
-1-4 = normal
++10 = bom
+1-10 = normal
 -1 = ruim
+
+!! se tiver 0 mortes e KDA + 6 = perfect !!
+
+tempo vivo
+sup: -3min  ruim 3+ bom
+ADC: -6min ruim  6+bom
+solo: -4min ruim 4+bom
 
 
 
 DICAS
+FARM SUP{
+	!ao contrario!
+
+	menos de 6 por min:
+	-você é suporte, nao necessita muito de farm.
+
+	mais de 8 por min:
+	-Amenos que seu ADC caiu, tente deixar ele farmar
 
 
-farm:
+}
+
+farm ruim:
 tente sempre dar o golpe final no minion;
 nao perca as catapultas!!
 lembre-se que 3 waves completas de minions vale mais que um abate!
 
+farm bom:
+Seu farm esta na média, dê mais atencao a ele para melhorar ainda mais.
 
-torre:
-tome cuidado com a torre, ela tem dano cumulativo (mais tempo embaixo mais dano cada ataque);
-de menos Dives (nao atacar usuario embaixo da torre);
+farm otimo:
+Mais um pouco você estara com farm PERFEITO
+
+farm perfeito:
+Você é quase o kami.
 
 
-kda:
-se voce esta morrendo muito, tente jogar mais recuado;
-assistencias tambem aumentam o KDA, ajude seu time!
-nao se mate por kill.
+kda ruim:
+- se voce esta morrendo muito, tente jogar mais recuado;
+- assistencias tambem aumentam o KDA, ajude seu time!
+- nao se mate por kill!
+Kda normal:
+- você esta na média, sempre tente melhorar mas lembre-se que kill nao ganha jogo.
+Kda bom
+- Continua assim, você esta acima da média, mas lembre-se que kill nao ganha jogo.
+Kda perfeito
+- Parabens, voce nao morreu nenhuma vez
+-Lembre-se que kill nao ganha jogo!
