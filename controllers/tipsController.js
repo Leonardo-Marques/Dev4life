@@ -17,6 +17,18 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
                     $scope.participantId = participant.participantId
                 }
             })
+            $scope.gameMode = $scope.match.gameMode
+
+            $scope.setFarmRatio = function(){
+                var creepHash = $scope.match.participants[8].timeline.creepsPerMinDeltas;
+                var creepRatio = 0;
+                for(var creepKey in creepHash){
+                  creepRatio = creepRatio + creepHash[creepKey];
+                }
+                creepRatio = Number(creepRatio/4).toFixed(2)
+                return creepRatio;
+            }
         })
+
 
 });
