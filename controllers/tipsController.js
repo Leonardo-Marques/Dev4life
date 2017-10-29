@@ -55,7 +55,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             $scope.kills = $scope.participant.stats.kills
             $scope.deaths = $scope.participant.stats.deaths
 
-            $scope.kda = ($scope.kills + $scope.assists)/$scope.deaths
+            $scope.kda = Number(($scope.kills + $scope.assists)/$scope.deaths).toFixed(2)
 
             //Metricas calculadas
             $scope.metricFarm = $scope.calculateMetricFarm($scope.creepRatio);
@@ -133,15 +133,20 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         if(deaths==0 && kills==0 && assists==0){
             return $scope.metrics.ok;
         }
-
-        if(deaths == 0){
+        if(deaths == 0 && (kills+assists>=3)){
             return $scope.metrics.perfeito;
+        }
+        if(deaths == 0 && (kills+assists>=2)){
+            return $scope.metrics.otimo;
+        }
+        if(deaths == 0){
+            return $scope.metrics.bom;
         }
         var media = (kills + assists)/deaths
 
-        if(media >= 5){
+        if(media >= 10){
             return $scope.metrics.otimo;
-        }if(media > 1 && media <= 3){
+        }if(media > 1 && media < 10){
             return $scope.metrics.ok;
         }if(media <= 1){
             return $scope.metrics.ruim;
