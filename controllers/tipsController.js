@@ -9,6 +9,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.matchId = $routeParams.idMatch
     $scope.summoner = $rootScope.summoner;
     $scope.summonerLevel = $rootScope.summonerLevel;
+    $scope.profileIcon = $rootScope.profileIcon
     $scope.loading = true;
 
     //Metrics
@@ -22,6 +23,8 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.viewFarmTips = []
     $scope.viewKdaTips = []
     $scope.viewTimeLiveTips = []
+
+    
 
     //Get Match
     $http.get("http://localhost:4040/match/" + $scope.matchId)
@@ -159,4 +162,6 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         var segundos = tempo%60
         return minutos+" min e "+segundos+" seg"
     }
+
+
 });
