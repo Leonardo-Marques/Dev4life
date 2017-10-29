@@ -23,9 +23,9 @@
 				</div>
 				<!-- /.col -->
 				<div class="col-sm-4 col-xs-4 border-right win-box" style="padding: 0px;">
-					<div ng-if="!loading" class="description-block">
-						<h5 ng-show="win" class="description-header venceu-text">Venceu</h5>
-						<h5 ng-show="!win" class="description-header perdeu-text">Perdeu</h5>
+					<div class="description-block">
+						<h5 ng-if="!loading" ng-show="win" class="description-header venceu-text">Venceu</h5>
+						<h5 ng-if="!loading" ng-show="!win" class="description-header perdeu-text">Perdeu</h5>
 						<div ng-if="loading" >
 								<i class="icon fa fa-spinner fa-spin fa-fw"></i>
 						</div>
