@@ -13,26 +13,29 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.match.participantIdentities.forEach(function (participant) {
       console.log("api name: " + participant.player.summonerName)
       console.log("this name: " + $scope.summoner)
-      if ($scope.summoner !== undefined && participant.player.summonerName.toUpperCase() == $scope.summoner.toUpperCase()) {
+      if ($scope.summoner !== undefined && participant.player.summonerName.toUpperCase().replace(/\s/g, "")  == $scope.summoner.toUpperCase()) {
         $scope.participantId = participant.participantId
       }
     })
     $scope.gameMode = $scope.match.gameMode
-  })
-
-  $scope.setLongestTimeSpentLiving = function(){
-    var longestTimeSpentLiving = $scope.match.participants[$scope.participantId - 1].stats.longestTimeSpentLiving
-    return
-  }
-
-  $scope.setFarmRatio = function(){
-    var creepHash = $scope.match.participants[$scope.participantId - 1].timeline.creepsPerMinDeltas;
+    $scope.participant = $scope.match.participants[$scope.participantId - 1]
+    $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
+    var creepHash = $scope.participant.timeline.creepsPerMinDeltas;
     var creepRatio = 0;
     for(var creepKey in creepHash){
       creepRatio = creepRatio + creepHash[creepKey];
     }
-    creepRatio = Number(creepRatio/4).toFixed(2)
-    return creepRatio;
+    $scope.creepRatio = Number(creepRatio/4).toFixed(2)
+    $scope.win = $scope.participant.stats.win
+  })
+
+  // $scope.setLongestTimeSpentLiving = function(){
+  //   var longestTimeSpentLiving
+  //   return longestTimeSpentLiving
+  // }
+
+  $scope.setFarmRatio = function(){
+
   }
 
 });
