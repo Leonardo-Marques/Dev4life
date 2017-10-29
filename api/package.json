@@ -16,7 +16,6 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "kayn": "^0.3.0",
-    "leaguejs": "^1.5.7"
+    "kayn": "^0.3.0"
   }
 }
