@@ -6,6 +6,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
 
     $scope.hasError = false;
     $scope.errorMsg = false;
+    $scope.loading = true;
 
     console.log($rootScope.summoner);
     $scope.summoner = $rootScope.summoner;
@@ -13,9 +14,11 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
     $http.get("http://localhost:4040/summoner/" + $rootScope.summoner)
         .then(function (response) {
             $scope.matches = response.data.matches;
+            $scope.loading = false;
         }).catch(function (response) {
         $scope.hasError = true;
         $scope.hasMsg = "Summoner não encontrado";
+        $scope.loading = false;
     });
 
     $scope.convertTimestampToDate = function (match) {

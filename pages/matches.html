@@ -1,32 +1,78 @@
 <div ng-if="hasError" class="alert alert-danger alert-dismissible">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  <h4><i class="icon fa fa-ban"></i> LOL</h4>
-  Summoner não encontrado<img src="../img/meme_lol.png" width="60" height="45" alt="LOL" align="right">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4><i class="icon fa fa-ban"></i> LOL</h4>
+    Summoner não encontrado<img src="../img/meme_lol.png" width="60" height="45" alt="LOL" align="right">
 </div>
 
 <div ng-if="!hasError">
-  <h4>Partidas de {{summoner}}</h4>
-  <input name="filtro" class="filter-input breadcrumb" ng-model="filtro" placeholder="Filtrar Partida"/>
+    <h4>Partidas de {{summoner}}</h4>
+    <input name="filtro" class="filter-input breadcrumb" ng-model="filtro" placeholder="Filtrar Partida"/>
+</div>
+
+<div class="box box-widget widget-user">
+    <!-- Add the bg color to the header using any of the bg-* classes -->
+    <div class="widget-user-header bg-black" style="background: url('../img/black-bg.png') center center;">
+        <h3 class="widget-user-username">Nina Mcintire</h3>
+        <h5 class="widget-user-desc">PDL 19</h5>
+        <!--<img class="img-responsive"  width="60" height="60" src="../img/gold.png" alt="" align="center" style="margin: 0 auto">-->
+    </div>
+    <div class="widget-user-image">
+        <img class="img-circle" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"
+             alt="User Avatar">
+    </div>
+    <div class="box-footer">
+        <div class="row">
+            <div class="col-sm-4 col-xs-4 border-right">
+                <div class="description-block">
+                    <h5 class="description-header">3,200</h5>
+                    <span class="description-text">Vitórias</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-xs-4 border-right">
+                <div class="description-block">
+                    <h5 class="description-header">13,000</h5>
+                    <span class="description-text">Derrotas</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 col-xs-4">
+                <div class="description-block">
+                    <h5 class="description-header">Gold</h5>
+                    <span class="description-text">Liga</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+
+<div ng-if="loading" class="alert alert-info">
+    <h4 style="margin: 0"><i class="icon fa fa-spinner fa-spin fa-fw"></i> Buscando partidas</h4>
 </div>
 
 <ul>
-  <li ng-repeat="match in matches | filter: filtro" class="box box-info">
-    <a href="#!/tips/{{match.gameId}}">
-      <div class="box-header">
-        <h3 class="box-title">Date: {{convertTimestampToDate(match)}}</h3>
-      </div>
-      <div class="match-box">
-        <div class="box-img">
-          <img class="champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"/>
-        </div>
-        <div class="col-xs-9">
-          <div class="box-body match-box-itens">
-            <span>Lane: {{match.lane}}</span>
-            <span>Season: {{match.season}}</span>
-            <span>Queue: {{match.queue}}</span>
-          </div>
-        </div>
-      </div>
-    </a>
-  </li>
+    <li ng-repeat="match in matches | filter: filtro" class="box box-info">
+        <a href="#!/tips/{{match.gameId}}">
+            <div class="box-header">
+                <h3 class="box-title">Date: {{convertTimestampToDate(match)}}</h3>
+            </div>
+            <div class="match-box">
+                <div class="box-img">
+                    <img class="champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"/>
+                </div>
+                <div class="col-xs-9">
+                    <div class="box-body match-box-itens">
+                        <span>Lane: {{match.lane}}</span>
+                        <span>Season: {{match.season}}</span>
+                        <span>Queue: {{match.queue}}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
 </ul>
