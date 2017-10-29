@@ -2,86 +2,63 @@
   "tips": {
     "farm": {
       "ruim": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Tente sempre dar o golpe final no minion",
+        "Não perca as catapultas!!",
+        "Lembre-se que 3 waves completas de minions vale mais que um abate!",
+        "A torre irá deixar os minions melee com pouca vida em 2 hit.",
+        "A torre mata os minions range no segundo hit, no inicio do jogo de um ataque básico antes do primeiro hit para conseguir matá-lo.",
+        "Se você é suporte, não necessita de muito de farm.",
+        "Se você é suporte, a menos que seu ADC se desconectou da partida, tente deixar ele farmar mais"
       ],
       "ok": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Seu farm está na média, dê mais atenção a ele para melhorar ainda mais.",
+        "A torre irá deixar os minions melee com pouca vida em 2 hits.",
+        "A torre mata os minions range no segundo hit, no inicio do jogo de um ataque básico antes do primeiro hit para conseguir matá-lo.",
+        "Não avance sua lane se esta sendo muito gankado pelo jungler inimigo ou esta atrás do seu adversário no farm.",
+        "Se você é suporte, não necessita de muito de farm.",
+        "Se você é suporte, a menos que seu ADC se desconectou da partida, tente deixar ele farmar mais"
       ],
       "otimo": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Neste nivel você pode tentar farmar um pouco a jungle.",
+        "Mais um pouco você estará com farm PERFEITO",
+        "Se você é suporte, não necessita de muito de farm.",
+        "Se você é suporte, a menos que seu ADC se desconectou da partida, tente deixar ele farmar mais"
       ],
       "perfeito": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Parabéns, você esta farmando super bem!",
+        "Se você é suporte, não necessita de muito de farm.",
+        "Se você é suporte, a menos que seu ADC se desconectou da partida, tente deixar ele farmar mais"
       ]
     },
     "kda": {
       "ruim": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Se você está morrendo muito, tente jogar mais recuado",
+        "Assistencias tambem aumentam o KDA, ajude seu time!",
+        "Não se mate por kill!"
       ],
       "ok": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Você está na média, sempre tente melhorar mas lembre-se que kill não ganha jogo."
       ],
       "otimo": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Continue assim, você está acima da média, mas lembre-se que kill não ganha jogo."
       ],
       "perfeito": [
-        {
-          "title": "",
-          "text": ""
-        },
-        {
-          "title": "",
-          "text": ""
-        }
+        "Parabéns, você não morreu nenhuma vez",
+        "Lembre-se que kill nao ganha jogo!"
+      ]
+    },
+    "time": {
+      "ruim": [
+
+      ],
+      "ok": [
+
+      ],
+      "otimo": [
+
+      ],
+      "perfeito": [
+        
       ]
     }
   }

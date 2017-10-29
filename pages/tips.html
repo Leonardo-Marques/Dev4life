@@ -95,52 +95,58 @@
 		</div>
 	</div>
 
-	<div ng-repeat="tip in viewFarmTips" class="row">
+	<div class="row">
 		<div class="col-md-3">
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">{{tip.title}}</h3>
+					<h3 class="box-title">Dicas sobre farming</h3>
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 						</button>
 					</div>
 				</div>
 				<div class="box-body">
-					{{tip.text}}
+					<ol>
+						<li ng-repeat="tip in viewFarmTips">{{tip}}</li>
+					</ol>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div ng-repeat="tip in viewKdaTips" class="row">
+	<div class="row">
 		<div class="col-md-3">
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">{{tip.title}}</h3>
+					<h3 class="box-title">Dicas sobre KDA</h3>
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 						</button>
 					</div>
 				</div>
 				<div class="box-body">
-					{{tip.text}}
+					<ol>
+						<li ng-repeat="tip in viewKdaTips">{{tip}}</li>
+					</ol>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div ng-repeat="tip in viewTimeTips" class="row">
+	<div class="row">
 		<div class="col-md-3">
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">{{tip.title}}</h3>
+					<h3 class="box-title">Dicas sobre tempo de vida</h3>
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 						</button>
 					</div>
 				</div>
 				<div class="box-body">
-					{{tip.text}}
+					<ol>
+						<li ng-repeat="tip in viewTimeTips">{{tip}}</li>
+					</ol>
 				</div>
 			</div>
 		</div>
