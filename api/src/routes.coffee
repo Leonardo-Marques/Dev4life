@@ -101,6 +101,7 @@ routes = (app) =>
         kayn.Matchlist.by.accountID summoner.accountId
           .query { endIndex: 10 }
           .then (response) =>
+            response.summoner = summoner
             matches = response.matches
             matches.forEach (match, index) =>
               codeQueue = match.queue
@@ -126,6 +127,27 @@ routes = (app) =>
         res.status 412
           .json err: err
         return
+
+  app.get '/summoner/:summonerId/queues/solo55', (req, res) =>
+    summonerId = req.params.summonerId
+    kayn.Leagues.by.summonerID summonerId
+      .then (league) =>
+        response = {}
+        league.forEach (l, index) =>
+          if l.queue = 'RANKED_SOLO_5x5' then response = l
+          return
+        res.json response
+
+  app.get '/summoner/:summonerId/queues/flex55', (req, res) =>
+    summonerId = req.params.summonerId
+    kayn.Leagues.by.summonerID summonerId
+      .then (league) =>
+        response = {}
+        league.forEach (l, index) =>
+          if l.queue = 'RANKED_FLEX_SR' then response = l
+          return
+        res.json response
+
 
 
 module.exports = routes
