@@ -44,18 +44,18 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
                 $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
             }
             $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
-            $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas
-            )
+            $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
             $scope.win = $scope.participant.stats.win
             $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
             $scope.assists = $scope.participant.stats.assists
             $scope.kills = $scope.participant.stats.kills
             $scope.deaths = $scope.participant.stats.deaths
-            $scope.kda = calculateKAD($scope.kills, $scope.assists, $scope.deaths)
+
+            $scope.kda = ($scope.kills + $scope.assists)/$scope.deaths
 
             //Metricas calculadas
             $scope.metricFarm = $scope.calculateMetricFarm($scope.creepRatio);
-            //$scope.metricKda = $scope.calculateMetricKda($scope.creepRatio);
+            $scope.metricKda = $scope.calculateMetricKda($scope.kills, $scope.assists, $scope.deaths);
 
             setTips()
         })
@@ -69,7 +69,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
                 $scope.tips = response.data.tips;
 
                 $scope.viewFarmTips = $scope.tips['farm'][$scope.metricFarm.name];
-                //$scope.viewKdaTips = $scope.tips['kda'][$scope.metricKda.name];
+                $scope.viewKdaTips = $scope.tips['kda'][$scope.metricKda.name];
 
             });
     }
@@ -83,18 +83,6 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         }
         creepRatio = Number(creepRatio / 4).toFixed(2)
         return creepRatio
-    }
-
-    function calculateKAD(kills, assists, deaths){
-      if(deaths == 0){
-        return "Perfect"
-      }
-      var kda = (kills + assists)/deaths
-      kda = Number(kda).toFixed(2)
-      if(kda >= 10){
-        return "Perfect"
-      }
-      return kda
     }
 
     /**
@@ -141,7 +129,12 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
      * ok = 1 - 3
      * ruim <= 1
      */
-    $scope.calculateMetricKda = function (media) {
+    $scope.calculateMetricKda = function (kills, assists, deaths) {
+        if(deaths == 0){
+            return $scope.metrics.perfeito;
+        }
+        var media = (kills + assists)/deaths
+
         if(media == 0){
             return $scope.metrics.perfeito;
         }else if(media >= 5){
