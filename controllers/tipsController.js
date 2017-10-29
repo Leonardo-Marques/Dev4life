@@ -116,11 +116,10 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.calculateMetricTower = function (media) {
         if(media == 1){
             return $scope.metrics.ruim;
-        }else if(media == 2){
+        }if(media == 2){
             return $scope.metrics.otimo;
-        }else{
-            return $scope.metrics.ok;
         }
+        return $scope.metrics.ok;
     }
 
     /**
@@ -141,9 +140,9 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
 
         if(media >= 5){
             return $scope.metrics.otimo;
-        }else if(media > 1 && media <= 3){
+        }if(media > 1 && media <= 3){
             return $scope.metrics.ok;
-        }else if(media <= 1){
+        }if(media <= 1){
             return $scope.metrics.ruim;
         }
     }
