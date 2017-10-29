@@ -64,7 +64,7 @@
         <img class="champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"/>
       </span>
       <div class="info-box-content">
-        <a href="#!/tips/{{match.gameId}}" style="color: black">
+        <a href="#!/tips/{{match.gameId}}" style="color: black" ng-click="next(match.role)">
           <span class="info-box-number">{{match.queue}}</span>
           <span class="info-box-text">{{match.map}}</span>
           <span class="info-box-text">{{match.lane}}</span>
