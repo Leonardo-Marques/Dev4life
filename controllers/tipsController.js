@@ -35,7 +35,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             $scope.loading = false;
             $scope.match = response.data;
             $scope.match.participantIdentities.forEach(function (participant) {
-                if ($scope.summoner !== undefined && participant.player.summonerName.toUpperCase().replace(/\s/g, "") == $scope.summoner.toUpperCase()) {
+                if ($scope.summoner !== undefined && participant.player.summonerName.toUpperCase().replace(/\s/g, "") == $scope.summoner.toUpperCase().replace(/\s/g, "")) {
                     $scope.participantId = participant.participantId
                 }
             })
