@@ -130,7 +130,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
      * ruim <= 1
      */
     $scope.calculateMetricKda = function (kills, assists, deaths) {
-        if(deaths==0 && kills==0 && deaths==0){
+        if(deaths==0 && kills==0 && assists==0){
             return $scope.metrics.ok;
         }
 
