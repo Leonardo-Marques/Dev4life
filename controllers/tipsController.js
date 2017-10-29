@@ -24,7 +24,9 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.viewKdaTips = []
     $scope.viewTimeLiveTips = []
 
-    
+    $scope.showTipsFarm = false
+    $scope.showTipsTime = false
+    $scope.showTipsKda = false
 
     //Get Match
     $http.get("http://localhost:4040/match/" + $scope.matchId)
@@ -76,7 +78,6 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
 
                 $scope.viewFarmTips = $scope.tips['farm'][$scope.metricFarm.name];
                 $scope.viewKdaTips = $scope.tips['kda'][$scope.metricKda.name];
-                $scope.viewTimeTips = $scope.tips['time'][$scope.metricTimeLiving.name];
 
             });
     }
@@ -164,5 +165,31 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         return minutos+" min e "+segundos+" seg"
     }
 
+    $scope.setKda = function(){
+      console.log("testee")
+      if($scope.showTipsKda){
+        $scope.showTipsKda = false;
+      }
+      else{
+        $scope.showTipsKda = true
+      }
+    }
 
+    $scope.setTime = function(){
+      if($scope.showTipsTime){
+        $scope.showTipsTime = false;
+        return false
+      }
+      $scope.showTipsTime = true
+      return true
+    }
+
+    $scope.setFarm = function(){
+      if($scope.showTipsFarm){
+        $scope.showTipsFarm = false;
+        return false
+      }
+      $scope.showTipsFarm = true
+      return true
+    }
 });
