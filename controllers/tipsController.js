@@ -20,13 +20,9 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.gameMode = $scope.match.gameMode
     $scope.participant = $scope.match.participants[$scope.participantId - 1]
     $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
-    var creepHash = $scope.participant.timeline.creepsPerMinDeltas;
-    var creepRatio = 0;
-    for(var creepKey in creepHash){
-      creepRatio = creepRatio + creepHash[creepKey];
-    }
-    $scope.creepRatio = Number(creepRatio/4).toFixed(2)
+    $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas;)
     $scope.win = $scope.participant.stats.win
+    $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
   })
 
   // $scope.setLongestTimeSpentLiving = function(){
@@ -34,8 +30,13 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
   //   return longestTimeSpentLiving
   // }
 
-  $scope.setFarmRatio = function(){
-
+  function calcularCreepRatio(creepHash){
+    var creepRatio = 0;
+    for(var creepKey in creepHash){
+      creepRatio = creepRatio + creepHash[creepKey];
+    }
+    creepRatio = Number(creepRatio/4).toFixed(2)
+    return creepRatio
   }
 
 });
