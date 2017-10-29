@@ -9,8 +9,6 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.matchId = $routeParams.idMatch
     $scope.summoner = $rootScope.summoner;
     $scope.summonerLevel = $rootScope.summonerLevel;
-    console.log($scope.summoner)
-    console.log($scope.summonerLevel)
     $scope.loading = true;
 
     //Metrics
@@ -41,14 +39,19 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             $scope.participant = $scope.match.participants[$scope.participantId - 1]
 
             if($scope.participant !== undefined) {
-                $scope.longestTimeSpentLiving = calcularTempoEmMinSeg($scope.participant.stats.longestTimeSpentLiving)
+                $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
                 $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
                 $scope.win = $scope.participant.stats.win
                 $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
-                $scope.assists = $scope.participant.stats.assists
-                $scope.kills = $scope.participant.stats.kills
-                $scope.deaths = $scope.participant.stats.deaths
             }
+            $scope.longestTimeSpentLiving = calcularTempoEmMinSeg($scope.participant.stats.longestTimeSpentLiving)
+            $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
+            $scope.win = $scope.participant.stats.win
+            $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
+            $scope.assists = $scope.participant.stats.assists
+            $scope.kills = $scope.participant.stats.kills
+            $scope.deaths = $scope.participant.stats.deaths
+
             $scope.kda = ($scope.kills + $scope.assists)/$scope.deaths
 
             //Metricas calculadas
@@ -67,11 +70,14 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         $http.get("tips.json")
             .then(function (response) {
                 $scope.tips = response.data.tips;
+
                 $scope.viewFarmTips = $scope.tips['farm'][$scope.metricFarm.name];
                 $scope.viewKdaTips = $scope.tips['kda'][$scope.metricKda.name];
-                $scope.viewTimeTips = $scope.tips['time'][$scope.metricTimeLiving.name];
+
             });
     }
+
+
 
     function calcularCreepRatio(creepHash) {
         var creepRatio = 0;
