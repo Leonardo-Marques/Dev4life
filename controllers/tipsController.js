@@ -1,5 +1,6 @@
 angular.module('app').controller('tipsController', function ($scope, $rootScope, $routeParams, $http, $location) {
 
+
     if ($rootScope.summoner === undefined) {
         $location.path("/");
     }
@@ -29,20 +30,17 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     $scope.showTipsKda = false
 
     //Get Match
-    $http.get("http://localhost:4040/match/" + $scope.matchId)
+    $http.get("https://intense-waters-52899.herokuapp.com/match" + $scope.matchId)
         .then(function (response) {
             $scope.loading = false;
             $scope.match = response.data;
             $scope.match.participantIdentities.forEach(function (participant) {
-                /*console.log("api name: " + participant.player.summonerName)
-                console.log("this name: " + $scope.summoner)*/
                 if ($scope.summoner !== undefined && participant.player.summonerName.toUpperCase().replace(/\s/g, "") == $scope.summoner.toUpperCase()) {
                     $scope.participantId = participant.participantId
                 }
             })
             $scope.gameMode = $scope.match.gameMode
             $scope.participant = $scope.match.participants[$scope.participantId - 1]
-
             if($scope.participant !== undefined) {
                 $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
                 $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
@@ -78,7 +76,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
 
                 $scope.viewFarmTips = $scope.tips['farm'][$scope.metricFarm.name];
                 $scope.viewKdaTips = $scope.tips['kda'][$scope.metricKda.name];
-
+                $scope.viewTimeLiveTips = $scope.tips['time']["ok"];
             });
     }
 
@@ -121,15 +119,6 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
      * 2- levar dano e sobreviver = bom
      * 3- não levou dano = ok
      */
-    $scope.calculateMetricTower = function (media) {
-        if(media == 1){
-            return $scope.metrics.ruim;
-        }if(media == 2){
-            return $scope.metrics.otimo;
-        }
-        return $scope.metrics.ok;
-    }
-
     $scope.calculateMetricTimeLiving = function () {
         return $scope.metrics.ok;
     }
@@ -166,7 +155,6 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     }
 
     $scope.setKda = function(){
-      console.log("testee")
       if($scope.showTipsKda){
         $scope.showTipsKda = false;
       }

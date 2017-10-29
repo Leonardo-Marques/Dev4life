@@ -14,7 +14,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
     console.log($rootScope.summoner);
     $scope.summoner = $rootScope.summoner;
 
-    $http.get("http://localhost:4040/summoner/" + $rootScope.summoner)
+    $http.get("https://intense-waters-52899.herokuapp.com/summoner/" + $rootScope.summoner)
         .then(function (response) {
             $scope.matches = response.data.matches;
             $scope.loading = false;
