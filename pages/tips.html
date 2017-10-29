@@ -23,9 +23,9 @@
 				</div>
 				<!-- /.col -->
 				<div class="col-sm-4 col-xs-4 border-right win-box" style="padding: 0px;">
-					<div ng-if="!loading" class="description-block">
-						<h5 ng-show="win" class="description-header venceu-text">Venceu</h5>
-						<h5 ng-show="!win" class="description-header perdeu-text">Perdeu</h5>
+					<div class="description-block">
+						<h5 ng-if="!loading" ng-show="win" class="description-header venceu-text">Venceu</h5>
+						<h5 ng-if="!loading" ng-show="!win" class="description-header perdeu-text">Perdeu</h5>
 						<div ng-if="loading" >
 								<i class="icon fa fa-spinner fa-spin fa-fw"></i>
 						</div>
@@ -52,7 +52,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="info-box">
-				<span class="info-box-icon bg-green"><i class="fa fa-check" aria-hidden="true"></i></span>
+				<span class="info-box-icon bg-{{metricFarm.color}}"><i class="{{metricFarm.icon}}" aria-hidden="true"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text" style="font-size: 1.5em">Farm/Min</span>
 					<span ng-if="!loading" class="info-box-number">{{creepRatio}}</span>
@@ -79,55 +79,22 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div ng-repeat="tip in viewFarmTips" class="row">
 		<div class="col-md-3">
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">Dica</h3>
+					<h3 class="box-title">{{tip.title}}</h3>
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 						</button>
 					</div>
 				</div>
 				<div class="box-body">
-					Como fazer
+					{{tip.text}}
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-3">
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dica</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body">
-					Como fazer
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-3">
-			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Dica</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body">
-					Como fazer
-				</div>
-			</div>
-		</div>
-	</div>
 
 </div>

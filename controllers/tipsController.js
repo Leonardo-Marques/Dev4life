@@ -1,17 +1,26 @@
 angular.module('app').controller('tipsController', function ($scope, $rootScope, $routeParams, $http, $location) {
 
     if ($rootScope.summoner === undefined) {
-        //$location.path("/");
+        $location.path("/");
     }
+
+    $scope.tips = [];
 
     $scope.matchId = $routeParams.idMatch
     $scope.summoner = $rootScope.summoner;
     $scope.loading = true;
+
+    //Metrics
     $scope.metrics = {}
     $scope.metrics.ruim = {'name':'ruim', 'color':'red', 'icon':'fa fa-exclamation'}
     $scope.metrics.ok = {'name':'ok', 'color':'yellow', 'icon':'fa fa-check'}
     $scope.metrics.otimo = {'name':'otimo', 'color':'green', 'icon':'fa fa-check'}
     $scope.metrics.perfeito = {'name':'perfeito', 'color':'blue', 'icon':'fa fa-check'}
+
+    //Tips para mostrar na view
+    $scope.viewFarmTips = []
+    $scope.viewKdaTips = []
+    $scope.viewTimeLiveTips = []
 
     //Get Match
     $http.get("http://localhost:4040/match/" + $scope.matchId)
@@ -27,24 +36,33 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             })
             $scope.gameMode = $scope.match.gameMode
             $scope.participant = $scope.match.participants[$scope.participantId - 1]
-            $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
-            $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas
-            )
-            $scope.win = $scope.participant.stats.win
-            $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
+            if($scope.participant !== undefined) {
+                $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
+                $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
+                $scope.win = $scope.participant.stats.win
+                $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
+            }
+
+            //Metricas calculadas
+            $scope.metricFarm = $scope.calculateMetricFarm($scope.creepRatio);
+            //$scope.metricKda = $scope.calculateMetricKda($scope.creepRatio);
+
+            setTips()
         })
 
-    // $scope.setLongestTimeSpentLiving = function(){
-    //   var longestTimeSpentLiving
-    //   return longestTimeSpentLiving
-    // }
+    /**
+     * Define tips de acordo com as metricas calculadas
+     */
+    function setTips() {
+        $http.get("tips.json")
+            .then(function (response) {
+                $scope.tips = response.data.tips;
 
-    //Get tips
-    /*$http.get("tips.json")
-        .then(function (response) {
-            console.log(response.data);
-        })*/
+                $scope.viewFarmTips = $scope.tips['farm'][$scope.metricFarm.name];
+                //$scope.viewKdaTips = $scope.tips['kda'][$scope.metricKda.name];
 
+            });
+    }
 
     function calcularCreepRatio(creepHash) {
         var creepRatio = 0;
@@ -63,18 +81,18 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
      *
      * @param media
      */
-    $scope.metricFarm = function (media) {
+    $scope.calculateMetricFarm = function (media) {
         if(media <= 6){
-            return "ruim";
+            return $scope.metrics.ruim;
         }
         if(media <= 10){
-            return "ok"
+            return $scope.metrics.ok;
         }
         if(media > 12) {
-            return "perfeito"
+            return $scope.metrics.perfeito;
         }
         if(media > 10){
-            return "otimo"
+            return $scope.metrics.otimo;
         }
     }
 
@@ -83,13 +101,13 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
      * 2- levar dano e sobreviver = bom
      * 3- não levou dano = ok
      */
-    $scope.metricTower = function (media) {
+    $scope.calculateMetricTower = function (media) {
         if(media == 1){
-            return "ruim"
+            return $scope.metrics.ruim;
         }else if(media == 2){
-            return "otimo"
+            return $scope.metrics.otimo;
         }else{
-            return "ok"
+            return $scope.metrics.ok;
         }
     }
 
@@ -99,15 +117,15 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
      * ok = 1 - 3
      * ruim <= 1
      */
-    $scope.metricKda = function (media) {
+    $scope.calculateMetricKda = function (media) {
         if(media == 0){
-            return "perfeito"
+            return $scope.metrics.perfeito;
         }else if(media >= 5){
-            return "otimo"
+            return $scope.metrics.otimo;
         }else if(media > 1 && media <= 3){
-            return "ok"
+            return $scope.metrics.ok;
         }else if(media <= 1){
-            return "ruim"
+            return $scope.metrics.ruim;
         }
     }
 
