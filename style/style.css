@@ -41,15 +41,35 @@ ul{
   justify-content: center;
 }
 
+.game-basic-stats{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .champ-img{
   height: 65px;
   width: 65px;
 }
 
 .background{
+  background-position:  center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url('../img/wallpaper.jpg');
   background-color: #ecf0f5;
 }
 
 .filter-input{
   width: 100%;
+}
+
+.venceu-text{
+  font-size: 23px !important;
+  color: green;
+}
+.perdeu-text{
+  font-size: 23px !important;
+  color: red;
 }

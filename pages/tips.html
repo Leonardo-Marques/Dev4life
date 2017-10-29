@@ -4,34 +4,42 @@
 		<!-- Add the bg color to the header using any of the bg-* classes -->
 		<div class="widget-user-header bg-black" style="background: url('../img/black-bg.png') center center;">
 			<h3 class="widget-user-username">{{summoner}}</h3>
-			<h5 class="widget-user-desc">PDL 19</h5>
 			<!--<img class="img-responsive"  width="60" height="60" src="../img/gold.png" alt="" align="center" style="margin: 0 auto">-->
 		</div>
 		<div class="widget-user-image">
 			<img class="img-circle" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png" alt="User Avatar">
 		</div>
 		<div class="box-footer">
-			<div class="row">
+			<div class="row game-basic-stats">
 				<div class="col-sm-4 col-xs-4 border-right">
 					<div class="description-block">
-						<h5 class="description-header">3,200</h5>
-						<span class="description-text">Vitórias</span>
+						<span class="description-text">Jogo</span>
+						<h5 ng-if="!loading" class="description-header">{{gameMode}}</h5>
+						<div ng-if="loading" >
+						    <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+						</div>
 					</div>
 					<!-- /.description-block -->
 				</div>
 				<!-- /.col -->
-				<div class="col-sm-4 col-xs-4 border-right">
-					<div class="description-block">
-						<h5 class="description-header">13,000</h5>
-						<span class="description-text">Derrotas</span>
+				<div class="col-sm-4 col-xs-4 border-right win-box" style="padding: 0px;">
+					<div ng-if="!loading" class="description-block">
+						<h5 ng-show="win" class="description-header venceu-text">Venceu</h5>
+						<h5 ng-show="!win" class="description-header perdeu-text">Perdeu</h5>
+						<div ng-if="loading" >
+								<i class="icon fa fa-spinner fa-spin fa-fw"></i>
+						</div>
 					</div>
 					<!-- /.description-block -->
 				</div>
 				<!-- /.col -->
 				<div class="col-sm-4 col-xs-4">
 					<div class="description-block">
-						<h5 class="description-header">Gold</h5>
-						<span class="description-text">Liga</span>
+						<span class="description-text">Killing Spree</span>
+						<h5 ng-if="!loading" class="description-header">{{largestKillingSpree}}</h5>
+						<div ng-if="loading" >
+						    <i class="icon fa fa-spinner fa-spin fa-fw"></i>
+						</div>
 					</div>
 					<!-- /.description-block -->
 				</div>
@@ -46,8 +54,11 @@
 			<div class="info-box">
 				<span class="info-box-icon bg-green"><i class="fa fa-check" aria-hidden="true"></i></span>
 				<div class="info-box-content">
-					<span class="info-box-text" style="font-size: 1.5em">Farm</span>
-					<span class="info-box-number">5/Min</span>
+					<span class="info-box-text" style="font-size: 1.5em">Farm/Min</span>
+					<span ng-if="!loading" class="info-box-number">{{creepRatio}}</span>
+					<div ng-if="loading" >
+							<i class="icon fa fa-spinner fa-spin fa-fw"></i>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -58,32 +69,11 @@
 			<div class="info-box">
 				<span class="info-box-icon bg-red"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
 				<div class="info-box-content">
-					<span class="info-box-text" style="font-size: 1.5em">Dano por Torres</span>
-					<span class="info-box-number">100</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="info-box">
-				<span class="info-box-icon bg-green"><i class="fa fa-check" aria-hidden="true"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text" style="font-size: 1.5em">Mortes por Torres</span>
-					<span class="info-box-number">10</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="info-box">
-				<span class="info-box-icon bg-red"><i class="fa fa-exclamation" aria-hidden="true"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text" style="font-size: 1.5em">Farm</span>
-					<span class="info-box-number">5/Min</span>
+					<span class="info-box-text" style="font-size: 1.5em">+ Tempo Vivo</span>
+					<span ng-if="!loading" class="info-box-number">{{longestTimeSpentLiving}} segundos</span>
+					<div ng-if="loading" >
+							<i class="icon fa fa-spinner fa-spin fa-fw"></i>
+					</div>
 				</div>
 			</div>
 		</div>
