@@ -18,7 +18,8 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
             $scope.loading = false;
             $scope.profileIcon = response.data.summoner.profileIcon;
             $scope.summonerName = response.data.summoner.name;
-            $scope.summonerLevel = response.data.summoner.summonerLevel;
+            $rootScope.summonerLevel = response.data.summoner.summonerLevel;
+            $scope.summonerLevel = $rootScope.summonerLevel
             $scope.role = response.data.summoner.role;
         }).catch(function (response) {
         $scope.hasError = true;
@@ -38,7 +39,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
         match.date = dateString
         return dateString
     }
-    
+
     $scope.next = function (role) {
         $rootScope.role = role;
         //$location.path( "/tips/"+matchId );

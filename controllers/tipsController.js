@@ -8,6 +8,9 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
 
     $scope.matchId = $routeParams.idMatch
     $scope.summoner = $rootScope.summoner;
+    $scope.summonerLevel = $rootScope.summonerLevel;
+    console.log($scope.summoner)
+    console.log($scope.summonerLevel)
     $scope.loading = true;
 
     //Metrics
@@ -36,7 +39,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             })
             $scope.gameMode = $scope.match.gameMode
             $scope.participant = $scope.match.participants[$scope.participantId - 1]
-            
+
             if($scope.participant !== undefined) {
                 $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
                 $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
