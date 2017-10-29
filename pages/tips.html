@@ -1,3 +1,4 @@
+<a href="#!/matches"><i class="fa fa-fw fa-angle-left go-back-icon"></i></a>
 <div class="col-md-12">
 
 	<div class="box box-widget widget-user">
@@ -50,8 +51,8 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
+		<!-- <div class="col-md-8 col-md-offset-2"> -->
 			<div class="info-box">
 				<span class="info-box-icon bg-{{metricFarm.color}}"><i class="{{metricFarm.icon}}" aria-hidden="true"></i></span>
 				<div class="info-box-content">
@@ -62,11 +63,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
+		<!-- <div class="col-md-8 col-md-offset-2"> -->
 			<div class="info-box">
 				<span class="info-box-icon bg-{{metricTimeLiving.color}}"><i class="{{metricTimeLiving.icon}}" aria-hidden="true"></i></span>
 				<div class="info-box-content">
@@ -77,11 +78,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
+		<!-- <div class="col-md-8 col-md-offset-2"> -->
 			<div class="info-box">
 				<span class="info-box-icon bg-{{metricKda.color}}"><i class="{{metricKda.icon}}" aria-hidden="true"></i></span>
 				<div class="info-box-content">
@@ -92,59 +93,64 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 
-	<div ng-repeat="tip in viewFarmTips" class="row">
-		<div class="col-md-3">
+	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
+		<!-- <div class="col-md-3"> -->
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">{{tip.title}}</h3>
+					<h3 class="box-title">Dicas sobre farming</h3>
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 						</button>
 					</div>
 				</div>
 				<div class="box-body">
-					{{tip.text}}
+					<ol>
+						<li ng-repeat="tip in viewFarmTips">{{tip}}</li>
+					</ol>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 
-	<div ng-repeat="tip in viewKdaTips" class="row">
-		<div class="col-md-3">
+	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
+		<!-- <div class="col-md-3"> -->
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">{{tip.title}}</h3>
+					<h3 class="box-title">Dicas sobre tempo de vida</h3>
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 						</button>
 					</div>
 				</div>
 				<div class="box-body">
-					{{tip.text}}
+					<ol>
+						<li ng-repeat="tip in viewTimeTips">{{tip}}</li>
+					</ol>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
 
-	<div ng-repeat="tip in viewTimeTips" class="row">
-		<div class="col-md-3">
+	<div class="col-md-4 col-sm-6 col-xs-12 match-box">
+		<!-- <div class="col-md-3"> -->
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">{{tip.title}}</h3>
+					<h3 class="box-title">Dicas sobre KDA</h3>
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 						</button>
 					</div>
 				</div>
 				<div class="box-body">
-					{{tip.text}}
+					<ol>
+						<li ng-repeat="tip in viewKdaTips">{{tip}}</li>
+					</ol>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 	</div>
-
 
 </div>

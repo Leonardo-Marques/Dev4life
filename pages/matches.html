@@ -1,3 +1,4 @@
+<a href="/"><i class="fa fa-fw fa-angle-left go-back-icon"></i></a>
 <div ng-if="hasError" class="alert alert-danger alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
     <h4><i class="icon fa fa-ban"></i> LOL</h4>
@@ -9,7 +10,7 @@
     <input name="filtro" class="filter-input breadcrumb" ng-model="filtro" placeholder="Filtrar Partida"/>
 </div> -->
 
-<div class="box box-widget widget-user">
+<div ng-if="showUser" class="box box-widget widget-user">
     <!-- Add the bg color to the header using any of the bg-* classes -->
     <div class="widget-user-header bg-black" style="background: url('../img/black-bg.png') center center;">
         <h3 class="widget-user-username">{{summoner}}</h3>
@@ -32,9 +33,9 @@
 
 
   <div class="col-md-4 col-sm-6 col-xs-12 match-box" ng-repeat="match in matches | filter: filtro" >
-    <div class="info-box">
+    <div class="info-box match-box">
       <span class="info-box-icon">
-        <img class="champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/MasterYi.png"/>
+        <img class="champ-img" src="../img/map.png"/>
       </span>
       <div class="info-box-content">
         <a href="#!/tips/{{match.gameId}}" style="color: black" ng-click="next(match.role)">
@@ -43,6 +44,7 @@
           <span class="info-box-text">{{match.lane}}</span>
         </a>
       </div>
+      <p>{{convertTimestampToDate(match)}}</p>
         <!-- /.info-box-content -->
     </div>
   <!-- /.info-box -->

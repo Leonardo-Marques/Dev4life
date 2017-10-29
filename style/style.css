@@ -4,8 +4,8 @@
 }
 
 a {
-    color: #FFFFFF;
-    text-decoration: none;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 
@@ -14,11 +14,15 @@ ul{
   padding: 0px;
   margin: 0px;
 }
-.match-box{
+.match-box > p{
+  position: absolute;
+  bottom: -10px;
+  right: 5px;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+}
+
+.match-box{
+  position: relative;
 }
 .match-box-itens{
   display: flex;
@@ -31,9 +35,9 @@ ul{
 }
 
 .center-conteiner{
- display: flex;
- flex-direction: row;
- justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .box-img{
@@ -63,7 +67,15 @@ img {
   background-size: cover;
   background-attachment: fixed;
   background-image: url('../img/wallpaper.jpg');
-  background-color: blue;
+}
+
+.go-back-icon{
+  position: absolute;
+  color: white;
+  left: 0px;
+  top: 1%;
+  font-size: 35px !important;
+  z-index: 9999;
 }
 
 .filter-input{
