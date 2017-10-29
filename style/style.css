@@ -48,9 +48,13 @@ ul{
   align-items: center;
 }
 
-.champ-img{
-  height: 65px;
-  width: 65px;
+  /*.champ-img{
+    height: 65px;
+    width: 65px;
+  }*/
+
+img {
+  vertical-align: unset !important
 }
 
 .background{
