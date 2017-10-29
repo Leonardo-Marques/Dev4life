@@ -36,12 +36,22 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             })
             $scope.gameMode = $scope.match.gameMode
             $scope.participant = $scope.match.participants[$scope.participantId - 1]
+            
             if($scope.participant !== undefined) {
                 $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
                 $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
                 $scope.win = $scope.participant.stats.win
                 $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
             }
+            $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
+            $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas
+            )
+            $scope.win = $scope.participant.stats.win
+            $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
+            $scope.assists = $scope.participant.stats.assists
+            $scope.kills = $scope.participant.stats.kills
+            $scope.deaths = $scope.participant.stats.deaths
+            $scope.kda = calculateKAD($scope.kills, $scope.assists, $scope.deaths)
 
             //Metricas calculadas
             $scope.metricFarm = $scope.calculateMetricFarm($scope.creepRatio);
@@ -64,6 +74,8 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             });
     }
 
+
+
     function calcularCreepRatio(creepHash) {
         var creepRatio = 0;
         for (var creepKey in creepHash) {
@@ -71,6 +83,18 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         }
         creepRatio = Number(creepRatio / 4).toFixed(2)
         return creepRatio
+    }
+
+    function calculateKAD(kills, assists, deaths){
+      if(deaths == 0){
+        return "Perfect"
+      }
+      var kda = (kills + assists)/deaths
+      kda = Number(kda).toFixed(2)
+      if(kda >= 10){
+        return "Perfect"
+      }
+      return kda
     }
 
     /**
