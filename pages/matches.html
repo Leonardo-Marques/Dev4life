@@ -33,7 +33,7 @@
 
 
   <div class="col-md-4 col-sm-6 col-xs-12 match-box" ng-repeat="match in matches | filter: filtro" >
-    <div class="info-box">
+    <div class="info-box match-box">
       <span class="info-box-icon">
         <img class="champ-img" src="../img/map.png"/>
       </span>
@@ -44,6 +44,7 @@
           <span class="info-box-text">{{match.lane}}</span>
         </a>
       </div>
+      <p>{{convertTimestampToDate(match)}}</p>
         <!-- /.info-box-content -->
     </div>
   <!-- /.info-box -->
