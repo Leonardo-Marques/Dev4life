@@ -41,7 +41,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
             $scope.participant = $scope.match.participants[$scope.participantId - 1]
 
             if($scope.participant !== undefined) {
-                $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
+                $scope.longestTimeSpentLiving = calcularTempoEmMinSeg($scope.participant.stats.longestTimeSpentLiving)
                 $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
                 $scope.win = $scope.participant.stats.win
                 $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
