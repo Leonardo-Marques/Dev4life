@@ -43,7 +43,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
                 $scope.win = $scope.participant.stats.win
                 $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
             }
-            $scope.longestTimeSpentLiving = $scope.participant.stats.longestTimeSpentLiving
+            $scope.longestTimeSpentLiving = calcularTempoEmMinSeg($scope.participant.stats.longestTimeSpentLiving)
             $scope.creepRatio = calcularCreepRatio($scope.participant.timeline.creepsPerMinDeltas)
             $scope.win = $scope.participant.stats.win
             $scope.largestKillingSpree = $scope.participant.stats.largestKillingSpree
@@ -146,5 +146,9 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
         }
     }
 
-
+    function calcularTempoEmMinSeg(tempo) {
+        var minutos = Math.floor(tempo/60)
+        var segundos = tempo%60
+        return minutos+" min e "+segundos+" seg"
+    }
 });
