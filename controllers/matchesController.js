@@ -39,6 +39,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
         day = formatDateInput(day)
         minutes = formatDateInput(minutes)
         month = formatDateInput(month)
+        month = parseInt(month) + 1
         var dateString = day + "/" + month + " as " + date.getHours() + ":" + minutes
         match.date = dateString
         return dateString
