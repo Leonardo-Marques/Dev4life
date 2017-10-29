@@ -8,6 +8,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
     $scope.hasError = false;
     $scope.errorMsg = false;
     $scope.loading = true;
+    $scope.showUser = false;
 
     console.log($rootScope.summoner);
     $scope.summoner = $rootScope.summoner;
@@ -16,6 +17,7 @@ angular.module('app').controller('matchesController', function ($scope, $rootSco
         .then(function (response) {
             $scope.matches = response.data.matches;
             $scope.loading = false;
+            $scope.showUser = true;
             $scope.profileIcon = response.data.summoner.profileIcon;
             $scope.summonerName = response.data.summoner.name;
             $rootScope.summonerLevel = response.data.summoner.summonerLevel;

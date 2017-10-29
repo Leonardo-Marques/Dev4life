@@ -9,7 +9,7 @@
     <input name="filtro" class="filter-input breadcrumb" ng-model="filtro" placeholder="Filtrar Partida"/>
 </div> -->
 
-<div class="box box-widget widget-user">
+<div ng-if="showUser" class="box box-widget widget-user">
     <!-- Add the bg color to the header using any of the bg-* classes -->
     <div class="widget-user-header bg-black" style="background: url('../img/black-bg.png') center center;">
         <h3 class="widget-user-username">{{summoner}}</h3>
