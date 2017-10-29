@@ -115,9 +115,9 @@ routes = (app) =>
         iconURL = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/" + summoner.profileIconId + ".png"
         response.summoner.profileIcon = iconURL
         kayn.Matchlist.by.accountID summoner.accountId
-          .query { endIndex: 1 }
-          .then (response) =>
-            response.summoner = summoner
+          .query { endIndex: 15 }
+          .then (r) =>
+            response.matches = r.matches
             matches = response.matches
             matches.forEach (match, index) =>
               codeSeason = match.season
@@ -128,14 +128,8 @@ routes = (app) =>
               response.matches[index].map = map[0]
               if match.lane is 'BOTTOM'
                 response.matches[index].lane = 'BOT'
-                kayn.Static.Champion.get response.matches[index].champion
-                  .then (champion) =>
-                    url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + champion.key + ".png"
-                    response.matches[index].championUrl = url
-                    return
               return
             res.json response
-            return
       .catch (err) =>
         res.status 412
           .json err: err
