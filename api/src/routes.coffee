@@ -115,19 +115,27 @@ routes = (app) =>
         iconURL = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/" + summoner.profileIconId + ".png"
         response.summoner.profileIcon = iconURL
         kayn.Matchlist.by.accountID summoner.accountId
-          .query { endIndex: 10 }
-          .then (matches) =>
-            matches.matches.forEach (match) ->
-              codeQueue = match.queue
-              q = QUEUES[codeQueue].split '\t'
-              match.queue = q[1]
-              match.map = q[0]
+          .query { endIndex: 1 }
+          .then (response) =>
+            response.summoner = summoner
+            matches = response.matches
+            matches.forEach (match, index) =>
               codeSeason = match.season
-              match.season = SEASON[codeSeason]
+              response.matches[index].season = SEASON[codeSeason]
+              codeQueue = match.queue
+              map = QUEUES[codeQueue].split '\t'
+              response.matches[index].queue = map[1]
+              response.matches[index].map = map[0]
               if match.lane is 'BOTTOM'
-                match.lane = 'BOT'
-              response.matches.push match
+                response.matches[index].lane = 'BOT'
+                kayn.Static.Champion.get response.matches[index].champion
+                  .then (champion) =>
+                    url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/' + champion.key + ".png"
+                    response.matches[index].championUrl = url
+                    return
+              return
             res.json response
+            return
       .catch (err) =>
         res.status 412
           .json err: err
