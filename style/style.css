@@ -41,6 +41,12 @@ ul{
   justify-content: center;
 }
 
+.game-basic-stats{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .champ-img{
   height: 65px;
   width: 65px;
@@ -60,8 +66,10 @@ ul{
 }
 
 .venceu-text{
+  font-size: 23px !important;
   color: green;
 }
 .perdeu-text{
+  font-size: 23px !important;
   color: red;
 }

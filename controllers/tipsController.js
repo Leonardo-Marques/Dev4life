@@ -8,6 +8,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
 
     $scope.matchId = $routeParams.idMatch
     $scope.summoner = $rootScope.summoner;
+    $scope.loading = true;
 
     //Metrics
     $scope.metrics = {}
@@ -24,6 +25,7 @@ angular.module('app').controller('tipsController', function ($scope, $rootScope,
     //Get Match
     $http.get("http://localhost:4040/match/" + $scope.matchId)
         .then(function (response) {
+            $scope.loading = false;
             $scope.match = response.data;
             $scope.match.participantIdentities.forEach(function (participant) {
                 /*console.log("api name: " + participant.player.summonerName)
