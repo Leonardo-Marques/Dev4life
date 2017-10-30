@@ -87,7 +87,7 @@ LANE = {
 URL_STATIC = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/'
 
 routes = (app) =>
-  kayn = Kayn.Kayn('RGAPI-2b0b2fc6-a141-479c-8d53-3919585145bd')({
+  kayn = Kayn.Kayn('RGAPI-65841c79-7b31-4b73-b88e-776fc4c8fdce')({
     region: 'br',
     debugOptions: {
       isEnabled: true,
